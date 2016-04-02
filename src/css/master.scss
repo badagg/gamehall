@@ -1,0 +1,141 @@
+html{
+	height: 100%;
+	width: 100%;
+}
+body{
+	background: #333;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	height: 100%;
+}
+#app{
+	position: relative;
+	width:100%;
+	height:100%;
+}
+.stage{
+	position: relative;
+	width:100%;
+	height:100%;
+	background: #fff;
+}
+.role{
+	width:32px;
+	height: 48px;
+	position: absolute;
+	//background-position:
+	.pic{
+		position: absolute;
+		width:32px;
+		height: 48px;
+		overflow: hidden;
+	}
+	.name{
+		width: 60px;
+		text-align: center;
+		font-size: 12px;
+		position: absolute;
+		top: -22px;
+		left: -13px;
+		white-space: nowrap;
+		overflow: hidden;
+
+	}
+	.msg{
+		transition: opacity .3s;
+		position: absolute;
+		bottom:50px;
+		width: 100px;
+		text-align: center;
+		background: rgba(0,0,0,.05);
+		font-size: 12px;
+		left: -38px;
+		line-height: 18px;
+		border-radius: 5px;
+		border:1px solid #eee;
+		padding: 0 5px;
+	}
+}
+
+.input-panel{
+	position: absolute;
+	bottom: 0;
+	width: 400px;
+	//height: 200px;
+	border:1px solid rgba(0,0,0,.2);
+	// background: rgba(0,0,0,.1);
+	padding: 5px 8px 5px 5px;
+	border-radius: 5px;
+	.chat-content-box{
+		//height: 170px;
+		transition: all .3s;
+		overflow-y: auto;
+	}
+	.ubb{
+		input{
+			width: 100%;
+			height: 28px;
+			margin-top: 1px;
+			outline: none;
+			text-indent: 5px;
+			background: rgba(0,0,0,.15);
+			border:none;
+			transition: all .3s;
+			&:focus{
+				background: rgba(0,0,0,.25);
+			}
+		}
+		button{
+			height: 30px;
+			width: 80px;
+			border:none;
+			background: #666;
+			color:#fff;
+			cursor: pointer;
+			outline: none;
+			&:hover{
+				background: #333;
+			}
+			&:active{
+				background: #444;
+			}
+		}
+	}
+}
+
+.chat-content{
+	margin: 0;
+	padding: 0;
+	padding: 3px 0;
+	font-size: 12px;
+	.name{
+		color: #945600;
+	}
+	.msg{
+		color: #444;
+	}
+	.whisper{
+		margin-right: 3px;
+		color: #32BB00;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
