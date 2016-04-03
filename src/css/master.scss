@@ -3,7 +3,7 @@ html{
 	width: 100%;
 }
 body{
-	background: #333;
+	background: #fff;
 	margin: 0;
 	padding: 0;
 	position: relative;
@@ -45,7 +45,7 @@ body{
 	.msg{
 		transition: opacity .3s;
 		position: absolute;
-		bottom:50px;
+		bottom:70px;
 		width: 100px;
 		text-align: center;
 		background: rgba(0,0,0,.05);
@@ -135,6 +135,58 @@ body{
 	}
 }
 
+.enter-game{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 482px;
+	height: 320px;
+	margin-left: -241px;
+	margin-top: -160px;
+	background: #fff;
+	.pic-box{
+		padding: 10px;
+		li{
+			width: 32px;
+			height: 48px;
+			overflow: hidden;
+			float: left;
+			border:2px solid #fff;
+			margin: 10px 15px;
+			transition: all .3s;
+			&:hover{
+				border-color: #999;
+			}
+		}
+		li.on{
+			border-color: #f60;
+		}
+	}
+	.btn{
+		text-align: center;
+		input{
+			text-align: center;
+			border:1px solid #ddd;
+			height: 24px;
+			outline: none;
+		}
+		button{
+			background: #eee;
+			border: 1px solid #ddd;
+			padding: 5px 10px;
+			outline:none;
+			&:hover{
+				background: #ccc;
+			}
+			&:active{
+				background: #eee;
+			}
+		}
+		p{
+			margin: 10px;
+		}
+	}
+}
 
 
 

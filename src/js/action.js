@@ -9,5 +9,6 @@ module.exports = {
 	KEY_UP_EVENT:"键盘抬起事件",
 	ROLE_STATE_ING:"正在更新小人状态",
 	GET_NEW_MESSAGE:"获取新消息",
-	SAVE_ROLE_XY:"保存自己的坐标"
+	SAVE_ROLE_XY:"保存自己的坐标",
+	SAVE_USER_INFO:"保存玩家信息"
 }
