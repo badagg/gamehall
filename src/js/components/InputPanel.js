@@ -5,6 +5,7 @@ var ACT = require('../action');
 var _t = require('../tools');
 
 module.exports = React.createClass({
+	chatTargetID:"all",//设定聊天目标 群聊或私聊
 	getInitialState:function(){
 		return {
 			chatList:[],
@@ -40,7 +41,7 @@ module.exports = React.createClass({
 				action:ACT.NEW_MESSAGE,
 				data:{
 					selfID:the.props.id,
-					targetID:the.props.targetID,
+					targetID:the.chatTargetID,
 					msg:msg
 				}
 			})
@@ -61,8 +62,19 @@ module.exports = React.createClass({
 			chatBoxHeight:0
 		})
 	},
+	//改变聊天对象
+	changeSelect:function(e){
+		this.chatTargetID = e.target.value;
+	},
 	render:function(){
 		var the = this;
+		//把自己从列表里找到并剔除 因为自己不能和自己说话
+		var newUsers = [];
+		for(var i=0;i<this.props.users.length;i++){
+			if(this.props.users[i]['id'] != this.props.id){
+				newUsers.push(this.props.users[i]);
+			}
+		}
 		return(
 			<div className='input-panel'>
 				<div ref='myChatBox' className='chat-content-box' style={{height:this.state.chatBoxHeight}}>{
@@ -71,10 +83,19 @@ module.exports = React.createClass({
 								name={elem.senderName} 
 								type={elem.type}
 								msg={elem.msg}
+								id={the.props.id}
 								time={elem.time} />;
 					})
 				}</div>
 				<div className='ubb'>
+					<select onChange={this.changeSelect}>
+						<option value='all'>所有人</option>
+						{
+							newUsers.map(function(elem, index) {
+								return <option key={index} value={elem.id}>{elem.name}</option>;
+							})
+						}
+					</select>
 					<input ref='myInput' type='text' placeholder='这里可以聊天哦...'
 						onFocus={this.focus.bind(null,true)}
 						onBlur={this.blur.bind(null,false)}

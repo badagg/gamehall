@@ -65,15 +65,22 @@ wss.on("connection",function(ws){
 		}
 		//接收新消息后 广播出去
 		if(msg['action'] == ACT.NEW_MESSAGE){
+			var newMsg = {
+				action:msg['action'],
+				type:msg['data']['targetID'],//接收者ID
+				sender:msg['data']['selfID'],
+				senderName:ws.user['name'],
+				msg:msg['data']['msg'],
+				time:_t.getTime()
+			}
 			//发送给所有人
 			if(msg['data']['targetID'] == "all"){
-				noticeUsers({
-					action:msg['action'],
-					type:msg['data']['targetID'],
-					sender:msg['data']['selfID'],
-					senderName:ws.user['name'],
-					msg:msg['data']['msg'],
-					time:_t.getTime()
+				noticeUsers(newMsg)
+			}else{
+				wsGroup.forEach(function(o,i){
+					if(msg['data']['targetID'] == o.user.id || msg['data']['selfID'] == o.user.id ){
+						o.send(JSON.stringify(newMsg));
+					}
 				})
 			}
 		}

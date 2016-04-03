@@ -56,12 +56,16 @@ body{
 		border:1px solid #eee;
 		padding: 0 5px;
 	}
+	.whisper{
+		border-color: #32BB00;
+		color: #32BB00;
+	}
 }
 
 .input-panel{
 	position: absolute;
 	bottom: 0;
-	width: 400px;
+	
 	//height: 200px;
 	border:1px solid rgba(0,0,0,.2);
 	// background: rgba(0,0,0,.1);
@@ -74,7 +78,7 @@ body{
 	}
 	.ubb{
 		input{
-			width: 100%;
+			width: 320px;
 			height: 28px;
 			margin-top: 1px;
 			outline: none;
@@ -82,9 +86,19 @@ body{
 			background: rgba(0,0,0,.15);
 			border:none;
 			transition: all .3s;
+			border-radius: 4px;
 			&:focus{
 				background: rgba(0,0,0,.25);
 			}
+		}
+		select{
+			outline: none;
+			width: 100px;
+			height: 30px;
+			border: none;
+			margin-right: 5px;
+			background: rgba(0,0,0,.15);
+			text-align: center;
 		}
 		button{
 			height: 30px;

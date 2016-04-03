@@ -10,7 +10,8 @@ module.exports = React.createClass({
 			dir:this.props.dir || 0,
 			walk:this.props.walk || 0,
 			msg:'',
-			isView:0
+			isView:0,
+			isWhisper:false
 		}
 	},
 	getDefaultProps:function(){
@@ -43,9 +44,11 @@ module.exports = React.createClass({
 			//发送消息 以气泡的方式显示
 			if(e.action == ACT.GET_NEW_MESSAGE){
 				if(e.data['sender'] == the.props.id){
+					var iswp = (e.data['type'] != 'all') ? true : false; //判断消息是否是私聊
 					the.setState({
 						msg:e.data['msg'],
-						isView:1
+						isView:1,
+						isWhisper:iswp
 					})
 					//气泡在几秒之内自动隐藏
 					clearTimeout(the.timer);
@@ -114,6 +117,7 @@ module.exports = React.createClass({
 	render:function(){
 		var _dir = -this.state.dir * 48;
 		var _walk = -this.state.walk * 32;
+		var msgClass = this.state.isWhisper ? "msg whisper" : "msg";
 
 		return(
 			<div className='role' style={{
@@ -126,7 +130,7 @@ module.exports = React.createClass({
 					backgroundPosition:_walk+'px '+ _dir+'px'
 				}}></div>
 				<p className='name'>{this.props.name}</p>
-				<p className='msg' style={{opacity:this.state.isView}}>{this.state.msg}</p>
+				<p className={msgClass} style={{opacity:this.state.isView}}>{this.state.msg}</p>
 			</div>
 		)
 	}

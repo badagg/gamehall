@@ -98,7 +98,10 @@ module.exports = React.createClass({
 		})
 		return(
 			<div ref='myStage' className='stage'>
-				<InputPanel callbackChangeChat={this.changeChat} id={this.cid} targetID={this.chatTargetID} />
+				<InputPanel 
+					callbackChangeChat={this.changeChat} 
+					users={this.state.users} 
+					id={this.cid} />
 				{roles}
 			</div>
 		)
