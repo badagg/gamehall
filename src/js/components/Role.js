@@ -123,7 +123,7 @@ module.exports = React.createClass({
 			<div className='role' style={{
 				left:this.state.x,
 				top:this.state.y,
-				zIndex:this.state.y
+				zIndex:Math.ceil(this.state.y)
 			}}>
 				<div className='pic' style={{
 					backgroundImage:'url('+this.props.src+')',
